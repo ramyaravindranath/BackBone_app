@@ -43,7 +43,7 @@ var BlogView= Backbone.View.extend({
 		'click .update-blog': 'update',
 		'click .cancel-blog': 'cancel',
 		'click .delete-blog': 'delete'
-		
+
     },
     edit: function() {
         $('.edit-blog').hide();
@@ -71,13 +71,11 @@ var BlogView= Backbone.View.extend({
 	delete: function() {
 		this.model.destroy();
 	},
-    
+
 	render:function(){
 		this.$el.html(this.template(this.model.toJSON()));
 		return this;
 	}
-
-
 });
 
 //view for blogs
@@ -94,7 +92,7 @@ var BlogsView= Backbone.View.extend({
 			setTimeout(function(){
 				self.render();
 			},30)
-			
+
 		}, this);
 		this.model.on('remove', this.render, this);
 	},
@@ -106,7 +104,6 @@ var BlogsView= Backbone.View.extend({
 		});
 		return this;
 	}
-
 });
 
 var blogsView = new BlogsView();
@@ -125,5 +122,4 @@ $(document).ready(function(){
 		blogs.add(blog);
 
 	})
-
 })
